@@ -10,9 +10,10 @@
 // ==/UserScript==
 
 
-// renamed kix-page-paginated to kix-page
 var style = document.createElement('style');
 style.type = 'text/css';
+
+//build css override string ("!important" flags)
 style.innerHTML = `                                       #docs-editor {/*\n*//*\n*/    background: #3b3b3b  !important  ;/*\n*/ /*\n*//*\n*/}
 #docs-editor-container {/*\n*//*\n*/    background: #2a2a2a  !important  ;/*\n*/ /*\n*//*\n*/}
 body {/*\n*//*\n*/    background-color: #292929  !important  ;/*\n*/    /*\n*//*\n*/}
@@ -29,11 +30,16 @@ body {/*\n*//*\n*/    background-color: #292929  !important  ;/*\n*/    /*\n*//*
 // added
 // kix-page #2a2a2a was too dark, #dadce0 creme seems fine
 //.outline-refresh #navigation-widget-bottom-fade {..see above..}
+// renamed kix-page-paginated to kix-page
 
 // sheets dev:
 //   paste " background: #2a2a2a; background-color: #2a2a2a; color: #2a2a2a;" into some style sections
-//   results
-//   grid-table-container fixed-table-container --> contains A-Z column names
+//   - results
+//   - grid-table-container fixed-table-container --> contains A-Z column names
+//   - setting lower order elements doesn't seem to change anything, 
+//   - canvas seems to be not html, so out of luck?
+
+// inject into document
 document.getElementsByTagName('head')[0].appendChild(style);
 
 
